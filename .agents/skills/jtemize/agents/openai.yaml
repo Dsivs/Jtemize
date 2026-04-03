@@ -1,0 +1,7 @@
+interface:
+  display_name: "Jtemize"
+  short_description: "Extract invoice data into structured JSON"
+  default_prompt: "Use $jtemize to transform this invoice into clean structured JSON."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,27 @@
+{
+  "name": "jtemize",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "dev:mastra": "mastra dev",
+    "build:mastra": "mastra build",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ai-sdk/openai": "latest",
+    "@mastra/core": "latest",
+    "@mastra/loggers": "latest",
+    "discord.js": "latest",
+    "dotenv": "latest",
+    "mastra": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "tsx": "latest",
+    "typescript": "latest"
+  }
+}

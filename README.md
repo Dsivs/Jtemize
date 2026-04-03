@@ -1,6 +1,6 @@
 # Jtemize
 
-Jtemize is a TypeScript project that uses Discord as the frontend, Mastra as the agent framework, and an OpenAI model to chat with users and extract invoice data into structured JSON.
+Jtemize is a TypeScript Discord bot that uses Mastra and an OpenAI model to chat with users and extract invoice data into structured JSON from text, images, and PDFs.
 
 ## What It Does
 
@@ -11,11 +11,11 @@ Jtemize is a TypeScript project that uses Discord as the frontend, Mastra as the
 
 ## Stack
 
-- TypeScript for the full application code
-- Discord.js for the bot interface
-- Mastra for agent orchestration
-- OpenAI for chat and invoice extraction
-- Zod for schema validation
+- TypeScript
+- Discord.js
+- Mastra
+- OpenAI
+- Zod
 
 ## Project Structure
 
@@ -26,16 +26,15 @@ Jtemize is a TypeScript project that uses Discord as the frontend, Mastra as the
 - [src/services/extract-invoice-json.ts](/Users/huangweide/Documents/Playground/src/services/extract-invoice-json.ts): invoice extraction service
 - [src/domain/invoice-schema.ts](/Users/huangweide/Documents/Playground/src/domain/invoice-schema.ts): Zod invoice schema
 
-## Commands
+## Setup
+
+1. Install dependencies:
 
 ```bash
-npm run dev
-npm run typecheck
+npm install
 ```
 
-## Environment Variables
-
-Create a `.env` file with:
+2. Create a `.env` file in the project root:
 
 ```env
 OPENAI_API_KEY=your_openai_api_key
@@ -45,12 +44,44 @@ DISCORD_GUILD_ID=optional_test_server_id
 OPENAI_MODEL=gpt-4.1-mini
 ```
 
+3. In the Discord Developer Portal:
+
+- Create or open your application
+- Add a bot under the `Bot` section
+- Copy the bot token into `DISCORD_BOT_TOKEN`
+- Use the Application ID as `DISCORD_CLIENT_ID`
+- Enable `Message Content Intent`
+- Invite the bot to your Discord server
+
+## How To Run
+
+Start the bot in development mode:
+
+```bash
+npm run dev
+```
+
+If startup succeeds, you should see a log like:
+
+```txt
+Discord bot ready as ...
+```
+
+You can also run a type check:
+
+```bash
+npm run typecheck
+```
+
 ## Discord Usage
 
 - `!chat What can you do?`
 - `!invoice` plus pasted invoice text
-- `!invoice` plus an attached invoice image or PDF
+- `!invoice` plus an attached invoice image
+- `!invoice` plus an attached invoice PDF
 
-## Current Scope
+## Notes
 
-This version is designed as a learning project for me leanring TypeScript and agent-based app structure.
+- This project is designed as a learning project for TypeScript and agent-based application structure.
+- The current bot uses Discord message commands, not slash commands.
+- The local `.env` file should not be committed to Git.
